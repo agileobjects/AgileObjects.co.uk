@@ -2,15 +2,16 @@
 ---
 
 // Imports
-@use "reset";
-@use "general";
-@use "structure";
-@use "header";
-@use "content";
-@use "forms";
-@use "code-samples";
-@use "comments";
-@use "search";
-@use "footer";
-@use "media-queries";
-@use "buy-me-a-coffee";
+@import "variables";
+@import "reset";
+@import "general";
+@import "structure";
+@import "header";
+@import "content";
+@import "forms";
+@import "code-samples";
+@import "comments";
+@import "search";
+@import "footer";
+@import "media-queries";
+@import "buy-me-a-coffee";
