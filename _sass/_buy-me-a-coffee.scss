@@ -1,8 +1,8 @@
-﻿@import "_variables.scss";
+﻿@use "variables" as *;
 
 $coffee-img-size: 40px;
-$coffee-img-margin-top: -($coffee-img-size / 2);
-$coffee-img-margin-right: -($coffee-img-size / 10);
+$coffee-img-margin-top: calc($coffee-img-size / 2 * -1);
+$coffee-img-margin-right: calc($coffee-img-size / 10 * -1);
 
 .bmc-button {
     background-color: #FFFFFF !important;
