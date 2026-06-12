@@ -1,10 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5</TargetFramework>
+    <TargetFramework>net10</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="_site\**" />
-    <EmbeddedResource Remove="_site\**" />
-    <None Remove="_site\**" />
-  </ItemGroup>
 </Project>

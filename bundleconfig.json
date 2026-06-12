@@ -29,11 +29,5 @@
     "inputFiles": [
       "assets/js/contact.js"
     ]
-  },
-  {
-    "outputFileName": "assets/js/ao-docs.min.js",
-    "inputFiles": [
-      "assets/js/ao-docs.js"
-    ]
   }
 ]
