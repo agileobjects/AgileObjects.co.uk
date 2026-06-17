@@ -1,4 +1,4 @@
-@import "_variables.scss";
+@use "variables" as *;
 
 /**
  * 5. Site Footer
@@ -14,6 +14,7 @@
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 0;
+  text-align: right;
   text-transform: uppercase;
 }
 

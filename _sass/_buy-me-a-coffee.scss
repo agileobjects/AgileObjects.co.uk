@@ -1,4 +1,4 @@
-﻿@import "_variables.scss";
+﻿@use "variables" as *;
 
 $coffee-img-size: 40px;
 $coffee-img-margin-top: calc($coffee-img-size / 2 * -1);
