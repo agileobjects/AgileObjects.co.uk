@@ -4,7 +4,7 @@
     var SearchOpts = function () { };
     SearchOpts.prototype = {
         min: 3,
-        json: [],
+        data: [],
         template: '<li><a href="{url}" title="{desc}">{title}</a></li>',
         noResults: 'No results found',
         limit: 10
@@ -28,19 +28,24 @@
     }
 
     var AoSearch = function (userOpts) {
-        this._ready = false;
         this._opts = ao.merge(new SearchOpts(), userOpts);
 
-        ao.ajax({
-            type: 'GET',
-            url: this._opts.url,
-            ctx: this,
-            onSuccess: function (response) {
-                this._opts.json = response.data;
-                this._ready = true;
-                this._search();
-            }
-        });
+        if (typeof this._opts.url === 'string') {
+            this._ready = false;
+
+            ao.ajax({
+                type: 'GET',
+                url: this._opts.url,
+                ctx: this,
+                onSuccess: function (response) {
+                    this._opts.data = response.data;
+                    this._ready = true;
+                    this._search();
+                }
+            });
+        } else {
+            this._ready = true;
+        }
 
         this._input = ao(this._opts.input).keyup(function (evt) {
             if (isRelevant(evt.which)) {
@@ -70,7 +75,7 @@
     }
 
     AoSearch.prototype._getMatches = function (key) {
-        var results = this._opts.json;
+        var results = this._opts.data;
         var l = results.length;
         var limit = this._opts.limit;
         var matches = [];

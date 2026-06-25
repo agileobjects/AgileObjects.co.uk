@@ -1,9 +1,20 @@
-﻿<script type="text/javascript" src="/assets/js/ao-search.min.js"></script>
+﻿---
+layout: null
+---
+<script type="text/javascript" src="/assets/js/ao-search.min.js"></script>
 <script type="text/javascript">
+    const data = [
+      {% for post in site.posts %}
+      {"title": "{{ post.title | replace: '&#58;', ':' | escape }}",
+        "tags": "{{ post.tags | join: ', ' }}", "url": "{{ site.baseurl }}{{ post.url }}",
+        "date": "{{ post.date | date: '%B %-d, %Y'}}"}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+
     Ao.search({
         input: 'search-input',
         output: 'search-results',
-        url: '{{ site.baseurl }}/search.json',
+        data: data,
         template: '<li><a href="{url}" title="{desc}">{title}</a><span class="post-meta"><time class="published" datetime="{date}">{date}</time></span></li>',
         limit: 15
     });
